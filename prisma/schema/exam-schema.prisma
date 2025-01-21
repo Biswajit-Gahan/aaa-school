@@ -1,0 +1,14 @@
+model Exam {
+  id           Int      @id @default(autoincrement()) @map("id")
+  examId       String   @unique @default(cuid()) @map("exam_id")
+  studentId    String   @map("student_id")
+  examGroup    String   @map("examGroup")
+  subjectId    String   @map("subject_id")
+  examMark     Int      @default(0) @map("exam_mark")
+  rightAnswers Int      @default(0) @map("right_answers")
+  wrongAnswers Int      @default(0) @map("wrong_answers")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("exams")
+}

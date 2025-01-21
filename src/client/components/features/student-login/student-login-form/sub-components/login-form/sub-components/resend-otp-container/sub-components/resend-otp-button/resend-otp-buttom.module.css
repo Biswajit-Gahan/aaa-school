@@ -1,0 +1,23 @@
+.resendOtpButton_resendOtpWrapper {
+    display: flex;
+    gap: 5px;
+}
+
+.resendOtpButton_resendOtpTitle {
+    display: inline;
+}
+
+.resendOtpButton_button {
+    width: fit-content;
+    padding: 0;
+    background-color: transparent;
+    color: var(--color-3);
+}
+
+.resendOtpButton_button:hover {
+    text-decoration: underline;
+}
+
+.resendOtpButton_button:disabled {
+    background: transparent;
+}

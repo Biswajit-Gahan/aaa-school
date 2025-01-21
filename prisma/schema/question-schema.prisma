@@ -1,0 +1,18 @@
+model Question {
+  id         Int      @id @default(autoincrement()) @map("id")
+  questionId String   @unique @default(cuid()) @map("question_id")
+  examGroup  String   @map("exam_group")
+  question   String   @map("question")
+  subjectId  String   @map("subject_id")
+  image      String?  @map("image")
+  optionA    String   @map("option_a")
+  optionB    String   @map("option_b")
+  optionC    String   @map("option_c")
+  optionD    String   @map("option_d")
+  answer     String   @map("answer")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@unique([question, examGroup])
+  @@map("questions")
+}

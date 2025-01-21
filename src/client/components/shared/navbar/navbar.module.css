@@ -1,0 +1,37 @@
+.navbar_mainContainer {
+    width: 100%;
+    background-color: var(--color-1);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: var(--default-navbar-height);
+    display: flex;
+    align-items: center;
+}
+
+.navbar_mainWrapper {
+    width: 100%;
+    padding: 0 var(--default-horizontal-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar_button {
+    width: fit-content;
+    padding: 0;
+    background: none;
+    font-weight: 500;
+}
+
+
+.navbar_brandLogoImage {
+    width: 250px;
+    height: auto;
+}
+
+.navbar_navigationContainer {
+    display: flex;
+    gap: 30px;
+}
+

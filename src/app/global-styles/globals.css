@@ -1,0 +1,128 @@
+:root {
+  --default-font-size: 14px;
+  --default-bg-color: #F8F8F8;
+  --default-horizontal-padding: 5%;
+  --default-navbar-height: 75px;
+  --default-text-color: #303030;
+  --default-border-radius: 10px;
+  --default-heading-font-size: 20px;
+  --default-content-gap: 30px;
+  --gradient-color-1: linear-gradient(90deg, #834422 0%, #CA9B61 100%);
+  --gradient-color-2: linear-gradient(270deg, #8F3831 0%, #CA5953 100%);
+;
+  --color-1: #FFFFFF;
+  --color-2: #303030;
+  --color-3: #8F8F8F;
+  --color-4: #c3c3c3;
+  --color-5: #D7362D;
+  --color-6: #7C0F1C;
+  --color-7: #D6605A;
+  --color-8: #834422;
+  --color-9: #EDEDED;
+  --color-10: #DF9C3F;
+  --color-11: #FFF3B0;
+  --color-12: #E6DCD8;
+  --color-13: #665050;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: var(--font-inter), 'sans-serif';
+  width: 100%;
+  min-height: 100vh;
+  font-size: var(--default-font-size);
+  background-color: var(--default-bg-color);
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  color: var(--default-text-color);
+}
+
+/* H1 */
+h1 {
+  font-size: var(--default-heading-font-size);
+}
+
+/* CONTAINER ELEMENT */
+.containerElement {
+  width: auto;
+  height: auto;
+}
+
+/* TEXT INPUT ELEMENT */
+.textInputWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--color-3);
+  border-radius: 5px;
+}
+
+.textInputWrapper:focus-within {
+  border: 1px solid var(--color-2);
+}
+
+.textInputElement {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  background-color: transparent;
+  color: var(--color-2);
+}
+
+/* BUTTON ELEMENT */
+
+.buttonElement {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.buttonElement:disabled {
+  color: #979797;
+  background: #e3e3e3;
+  cursor: not-allowed;
+}
+
+/* TEXT ELEMENT */
+
+.textElement {
+  width: 100%;
+  display: inline-block;
+}
+
+.textTitleElement {
+  width: 100%;
+  display: inline-block;
+}
+
+/* LIST ELEMENT */
+.listElement {
+  list-style: none;
+}
+
+/* LIST ITEM ELEMENT */
+.listItemElement {
+
+}

@@ -1,0 +1,18 @@
+.formMobileNumberInput_formInput {
+    padding: 0 15px;
+    height: 40px;
+}
+
+.formMobileNumberInput_formInput:focus-within .formMobileNumberInput_inputIcons {
+    color: var(--color-2);
+}
+
+.formMobileNumberInput_inputIcons {
+    color: var(--color-3);
+}
+
+.formMobileNumberInput_errorLabel {
+    margin-top: 10px;
+    color: var(--color-5);
+    font-size: 12px;
+}

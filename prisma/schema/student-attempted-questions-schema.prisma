@@ -1,0 +1,10 @@
+model AttemptedQuestions {
+  id                Int      @id @default(autoincrement()) @map("id")
+  studentId         String   @map("student_id")
+  subjectId         String   @map("subject_id")
+  attemptedQuestion String?  @map("attempted_question")
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  @@map("attempted_questions")
+}

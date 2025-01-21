@@ -1,0 +1,5 @@
+.verifyOtpButton_submitButton {
+    background: linear-gradient(90deg, #7C3C1C 0%, #D3A468 100%);
+    color: var(--color-1);
+    margin-top: 25px;
+}

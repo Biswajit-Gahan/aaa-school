@@ -1,0 +1,7 @@
+.logoutButton_button {
+    width: fit-content;
+    padding: 10px 15px;
+    background-color: var(--color-7);
+    color: var(--color-1);
+    font-weight: normal;
+}

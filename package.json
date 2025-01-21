@@ -1,0 +1,38 @@
+{
+  "name": "aaa-school-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prisma_migrate:create": "npx prisma migrate dev --create-only",
+    "prisma_migrate:dev": "npx prisma migrate dev",
+    "prisma_migrate:prod": "npx prisma migrate deploy",
+    "prisma_seed": "node prisma/seed.js",
+    "prisma_studio": "npx prisma studio"
+  },
+  "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
+    "@prisma/client": "^6.2.1",
+    "@reduxjs/toolkit": "^2.5.0",
+    "bcrypt": "^5.1.1",
+    "client-only": "^0.0.1",
+    "crypto-js": "^4.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "next": "15.1.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.4.0",
+    "react-redux": "^9.2.0",
+    "server-only": "^0.0.1",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.4",
+    "prisma": "^6.2.1"
+  }
+}

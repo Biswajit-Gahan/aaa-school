@@ -1,0 +1,67 @@
+/* GUIDELINES PAGE */
+.guidelinesPage_mainContainer {}
+
+.guidelinesPage_mainWrapper {
+    min-height: calc(100vh - var(--default-navbar-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.guidelinesPage_guidelinesContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--default-content-gap) var(--default-horizontal-padding);
+    gap: var(--default-content-gap);
+}
+
+/* GUIDELINES SECTION */
+.guidelinesSection_guidelinesContainer {
+    background-color: var(--color-1);
+    border-radius: var(--default-border-radius);
+    padding: var(--default-content-gap);
+    width: 100%;
+}
+
+.guidelinesSection_descriptionLabel {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.guidelinesSection_guidelinesLabel {
+    margin: 30px 0 20px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: underline;
+    color: var(--color-7);
+    font-style: italic;
+}
+
+.guidelinesSection_listContent {
+    list-style: inherit;
+    margin-left: 15px;
+    line-height: 30px;
+    color: var(--color-3);
+}
+
+.footerSection_guideLinesFooterContainer {
+    display: flex;
+    padding: var(--default-content-gap) var(--default-horizontal-padding);
+    justify-content: space-between;
+    background-color: var(--color-1);
+}
+
+.footerSection_button {
+    width: 150px;
+}
+
+.footerSection_backButton {
+    background-color: transparent;
+    border: 1px solid var(--color-8);
+    color: var(--color-8);
+}
+
+.footerSection_startButton {
+    background: var(--gradient-color-1);
+    color: var(--color-1);
+}

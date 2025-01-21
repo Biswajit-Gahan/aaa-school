@@ -1,0 +1,11 @@
+model Subject {
+  id          Int      @id @default(autoincrement()) @map("id")
+  subjectId   String   @unique @default(cuid()) @map("subject_id")
+  subjectName String   @map("subject_name")
+  examGroup   String   @map("exam_group")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@unique([subjectName, examGroup])
+  @@map("subjects")
+}

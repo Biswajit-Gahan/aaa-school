@@ -1,0 +1,19 @@
+.formOtpNumberInput_formInput {
+    margin: 15px 0;
+    padding: 0 15px;
+    height: 40px;
+}
+
+.formOtpNumberInput_formInput:focus-within .formOtpNumberInput_inputIcons {
+    color: var(--color-2);
+}
+
+.formOtpNumberInput_inputIcons {
+    color: var(--color-3);
+}
+
+.formOtpNumberInput_errorLabel {
+    color: var(--color-5);
+    font-size: 12px;
+    margin-bottom: 15px;
+}

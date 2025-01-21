@@ -1,0 +1,32 @@
+/*STUDENT LOGIN FORM STYLES*/
+
+.studentLoginForm_mainContainer {
+    background-color: var(--color-1);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.studentLoginForm_brandImageWrapper {
+    text-align: center;
+}
+
+.studentLoginForm_brandImage {
+    width: 300px;
+    height: auto;
+}
+
+.studentLoginForm_headingContainer {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.studentLoginForm_headingTitle {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-2);
+}
+
+.studentLoginForm_headingDescription {
+    margin-top: 10px;
+    color: var(--color-3);
+}

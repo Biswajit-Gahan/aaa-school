@@ -1,0 +1,7 @@
+.formError_errorText {
+    margin-top: 15px;
+    text-align: center;
+    color: var(--color-5);
+    font-size: 12px;
+    font-weight: bold;
+}

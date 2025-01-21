@@ -1,0 +1,12 @@
+model Ad {
+  id        Int      @id @default(autoincrement()) @map("id")
+  adId      String   @unique @default(cuid()) @map("ad_id")
+  name      String   @map("name")
+  type      String   @map("type")
+  image     String   @map("image")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([name, type])
+  @@map("ads")
+}

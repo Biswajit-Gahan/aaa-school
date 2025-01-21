@@ -1,0 +1,269 @@
+/* HOME PAGE */
+
+.homePage_mainContainer{}
+
+.homePage_mainWrapper {
+    min-height: calc(100vh - var(--default-navbar-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--default-content-gap) var(--default-horizontal-padding);
+}
+
+.homePage_mainContentContainer {
+    margin-top: var(--default-content-gap);
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--default-content-gap);
+}
+
+.homePage_examContentWrapper {
+    width: 100%;
+}
+
+
+/* AD SECTION */
+.adSection_adContainer {
+    display: inline-flex;
+}
+
+/* USER SECTION */
+.userSection_userContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--default-content-gap);
+    padding: 50px 5%;
+    background: url("/cheer-image.png"), var(--gradient-color-2);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: var(--default-border-radius);
+    color: var(--color-1);
+}
+
+.userSection_name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.userSection_greet {
+    font-size: 12px;
+}
+
+.userSection_dateWrapper {
+    text-align: right;
+}
+
+.userSection_date {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--color-11);
+    font-style: italic;
+}
+
+/* EXAM SUBJECTS SECTION */
+.examSubjectsSection_subjectsContainer {
+    margin-top: var(--default-content-gap);
+}
+
+.examSubjectsSection_subjectsHeaderLabel {
+    font-size: 20px;
+}
+
+.examSubjectsSection_subjectsHeaderDescription {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--color-3);
+}
+
+.examSubjectsSection_subjectsListContainer {
+    margin-top: var(--default-content-gap);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--default-content-gap);
+}
+
+/* SUBJECT CARD */
+.subjectCard_cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-12);
+    border-radius: var(--default-border-radius);
+    padding: 20px;
+}
+.subjectCard_subjectIconContainer {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-13);
+}
+
+.subjectCard_subjectIcon {
+    width: 100%;
+    height: auto;
+    padding: 8px;
+}
+
+.subjectCard_subjectLabel {
+    margin-top: 10px;
+    color: var(--color-13);
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.subjectCard_subjectDescription {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--color-13);
+    font-weight: 300;
+}
+
+.subjectCard_startTestButton {
+    background-color: transparent;
+    width: fit-content;
+    padding: 0;
+    margin-top: 25px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* HISTORY SECTION */
+.examHistorySection_historyContainer {
+    padding: 25px;
+    min-width: 320px;
+    max-width: 320px;
+    width: 100%;
+    background-color: var(--color-1);
+    border-radius: var(--default-border-radius);
+    height: fit-content;
+}
+
+.examHistorySection_historyHeaderLabel {
+    font-size: 20px;
+}
+
+.examHistorySection_historyHeaderDescription {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.examHistorySection_historyContentContainer {
+    margin-top: 20px;
+}
+
+/* NO EXAM HISTORY */
+.noExamHistory_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.noExamHistory_listImage {
+    width: 70%;
+    height: auto;
+}
+
+.noExamHistory_noListDescription {
+    margin-top: var(--default-content-gap);
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+/* EXAM HISTORY LIST */
+.examHistoryList_container {
+    margin-top: 20px;
+}
+
+/* EXAM HISTORY CARD */
+.examHistoryCard_container {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.examHistoryCard_progressBarContainer {
+    width: 100%;
+    height: 7px;
+    background-color: var(--color-9);
+    border-radius: var(--default-border-radius);
+    overflow: clip;
+}
+
+.examHistoryCard_progressBar {
+    width: 50%;
+    height: 100%;
+    background-color: var(--color-10);
+}
+
+.examHistoryCard_scoreDescriptionContainer {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    text-wrap: nowrap;
+    color: var(--color-3);
+}
+
+.examHistoryCard_scoreDescriptionWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.examHistoryCard_examHistoryCard_subject {
+    width: fit-content;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--color-2);
+    text-transform: capitalize;
+}
+
+.examHistoryCard_examHistoryCard_level {
+    color: var(--color-10);
+}
+
+.examHistoryCard_examHistoryCard_score {
+    width: fit-content;
+}
+
+/* FOOTER SECTION */
+.footerSection_footerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-3);
+    text-wrap: nowrap;
+    font-size: 12px;
+    margin-top: var(--default-content-gap);
+}
+
+.footerSection_copyrightContainer {
+    display: flex;
+    align-items: center;
+}
+
+.footerSection_schoolLink {
+    padding: 0;
+    width: fit-content;
+}
+
+.footerSection_schoolLink:hover {
+    text-decoration: underline;
+    color: var(--color-8);
+}
+
+.footerSection_footerText {
+    width: fit-content;
+}

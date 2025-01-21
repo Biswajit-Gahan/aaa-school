@@ -1,0 +1,11 @@
+model Otp {
+  id               Int       @id @default(autoincrement()) @map("id")
+  mobileNumber     String    @unique @map("mobile_number")
+  otpNumber        String?   @map("otp_number")
+  otpValidityStart DateTime? @map("otp_validity_start")
+  otpValidityEnd   DateTime? @map("otp_validity_end")
+  createdAt        DateTime  @default(now()) @map("created_at")
+  updatedAt        DateTime  @updatedAt @map("updated_at")
+
+  @@map("otp")
+}
