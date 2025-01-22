@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./global-styles/globals.css";
-import StoreProvider from "@/client/store/store-provider";
+import UserContextProvider from "@/client/context/user-context";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,12 +17,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-      <StoreProvider>
-        <html lang="en">
-        <body className={`${inter.variable}`}>
-        {children}
-        </body>
-        </html>
-      </StoreProvider>
+
+        <UserContextProvider>
+            <html lang="en">
+            <body className={`${inter.variable}`}>
+            {children}
+            </body>
+            </html>
+        </UserContextProvider>
+
   );
 }

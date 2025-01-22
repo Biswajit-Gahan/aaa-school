@@ -9,8 +9,8 @@ import SendOtpButton
     from "@/client/components/features/student-login/student-login-form/sub-components/login-form/sub-components/send-otp-button/send-otp-button";
 import VerifyOtpButton
     from "@/client/components/features/student-login/student-login-form/sub-components/login-form/sub-components/verify-otp-button/verify-otp-button";
-import StudentLoginFormContextProvider
-    from "@/client/components/features/student-login/student-login-form/context/student-login-form-context";
+import LoginFormContextProvider
+    from "@/client/components/features/student-login/student-login-form/context/login-form-context";
 import ResendOtpContainer
     from "@/client/components/features/student-login/student-login-form/sub-components/login-form/sub-components/resend-otp-container/resend-otp-container";
 import ContainerElement from "@/client/components/user-interfaces/container-element";
@@ -18,7 +18,7 @@ import FormError
     from "@/client/components/features/student-login/student-login-form/sub-components/login-form/sub-components/form-error/form-error";
 
 export default function LoginForm() {
-    return <StudentLoginFormContextProvider>
+    return <LoginFormContextProvider>
         <ContainerElement className={styles.loginForm_formContainer}>
             <FormWrapper>
                 <FormMobileNumberInput />
@@ -29,5 +29,5 @@ export default function LoginForm() {
                 <FormError />
             </FormWrapper>
         </ContainerElement>
-    </StudentLoginFormContextProvider>
+    </LoginFormContextProvider>
 }

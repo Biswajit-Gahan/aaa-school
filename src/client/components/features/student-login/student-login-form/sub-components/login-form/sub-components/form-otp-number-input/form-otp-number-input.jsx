@@ -3,22 +3,23 @@
 import styles from "./form-otp-number-input-styles.module.css";
 import TextInputElement from "@/client/components/user-interfaces/text-input-element";
 import {HiOutlineKey} from "react-icons/hi2";
-import useStudentLoginFormContext from "@/client/components/features/student-login/student-login-form/hooks/use-student-login-form-context";
-import useStudentLoginFormInputState
-    from "@/client/components/features/student-login/student-login-form/hooks/use-student-login-form-input-state";
 import ContainerElement from "@/client/components/user-interfaces/container-element";
 import TextElement from "@/client/components/user-interfaces/text-element";
+import useLoginFormContext
+    from "@/client/components/features/student-login/student-login-form/hooks/use-login-form-context";
+import useFormOtpInput from "@/client/components/features/student-login/student-login-form/hooks/use-form-otp-input";
 
 export default function FormOtpNumberInput() {
-    const [studentLoginFormContextState] = useStudentLoginFormContext();
+    const {
+        otpNumber,
+        loading,
+        otpNumberError,
+        otpGenerated,
+    } = useLoginFormContext();
 
-    const [
-        inputValue,
-        error,
-        handleInputChange,
-    ] = useStudentLoginFormInputState('otpNumber', studentLoginFormContextState.isResetOtpNumber);
+    const inputHandler = useFormOtpInput();
 
-    if(!studentLoginFormContextState.isOtpGenerated) {
+    if(!otpGenerated) {
         return null;
     }
 
@@ -27,15 +28,15 @@ export default function FormOtpNumberInput() {
             className={styles.formOtpNumberInput_formInput}
             placeholder={"Enter OTP"}
             name="otpNumber"
-            value={inputValue}
-            onChange={handleInputChange}
-            disabled={studentLoginFormContextState.isLoading || studentLoginFormContextState.isOtpVerifying}
+            value={otpNumber}
+            onChange={inputHandler}
+            disabled={loading}
         >
             <HiOutlineKey className={styles.formOtpNumberInput_inputIcons} size={18}/>
         </TextInputElement>
 
         {
-            error && <TextElement className={styles.formOtpNumberInput_errorLabel}>
+            otpNumberError && <TextElement className={styles.formOtpNumberInput_errorLabel}>
                 * Please enter a valid 6 digit OTP number.
             </TextElement>
         }

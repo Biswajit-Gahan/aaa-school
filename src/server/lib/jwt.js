@@ -12,6 +12,10 @@ const jsonWebToken = {
 
     verify(token) {
         return jwt.verify(token, JWT_SECRET_KEY);
+    },
+
+    decode(token) {
+        return jwt.decode(token);
     }
 }
 

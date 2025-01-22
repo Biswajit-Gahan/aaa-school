@@ -34,7 +34,7 @@ export async function GET(req) {
             take: 5,
             select: {
                 subjectId: true,
-                examMark: 20,
+                examMark: true,
                 rightAnswers: true,
                 createdAt: true,
                 updatedAt: true

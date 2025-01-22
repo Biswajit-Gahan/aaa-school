@@ -2,31 +2,33 @@
 
 import styles from "./send-otp-button.module.css";
 import ButtonElement from "@/client/components/user-interfaces/button-element";
-import useStudentLoginFormContext
-    from "@/client/components/features/student-login/student-login-form/hooks/use-student-login-form-context";
-import LoadingSpinner from "@/client/components/shared/loading-spinner/loading-spinner";
+import useLoginFormContext
+    from "@/client/components/features/student-login/student-login-form/hooks/use-login-form-context";
 import {Fragment} from "react";
+import LoadingSpinner from "@/client/components/shared/loading-spinner/loading-spinner";
 
 export default function SendOtpButton() {
-    const [studentLoginFormContextState] = useStudentLoginFormContext();
+    const {
+        mobileNumber,
+        mobileNumberError,
+        loading,
+        otpGenerated,
+        generateOtp,
+    } = useLoginFormContext();
 
-    if(studentLoginFormContextState.isOtpGenerated) {
+    if(otpGenerated) {
         return null;
     }
 
     return <ButtonElement
-        disabled={
-        !studentLoginFormContextState.mobileNumber
-            || studentLoginFormContextState.isLoading
-            || studentLoginFormContextState.isOtpGenerating
-        }
         className={styles.generateOtpButton_submitButton}
         type={'submit'}
+        disabled={loading || mobileNumberError || !mobileNumber}
     >
         {
-            studentLoginFormContextState.isOtpGenerating
-                ? <Fragment><LoadingSpinner /> SENDING...</Fragment>
-                : "SEND OTP"
+            loading || generateOtp
+                ? <Fragment><LoadingSpinner/> SENDING...</Fragment>
+                : "SEND"
         }
     </ButtonElement>
 }

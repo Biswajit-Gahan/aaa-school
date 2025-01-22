@@ -1,17 +1,17 @@
-import useStudentLoginFormContext
-    from "@/client/components/features/student-login/student-login-form/hooks/use-student-login-form-context";
+import useLoginFormContext
+    from "@/client/components/features/student-login/student-login-form/hooks/use-login-form-context";
 import {
-    STUDENT_LOGIN_FORM_CONTEXT_REDUCERS
-} from "@/client/components/features/student-login/student-login-form/context/student-login-form-context";
+    LOGIN_FORM_CONTEXT_REDUCERS
+} from "@/client/components/features/student-login/student-login-form/context/login-form-context";
 
 export default function useChangeNumber() {
-    const [_, studentFormContextDispatch] = useStudentLoginFormContext();
+    const {
+        contextDispatch
+    } = useLoginFormContext();
 
-    return function handler(event) {
-        event.preventDefault();
-
-        studentFormContextDispatch({
-            type: STUDENT_LOGIN_FORM_CONTEXT_REDUCERS.RESET_MOBILE_NUMBER,
-        });
+    return function () {
+        contextDispatch({
+            type: LOGIN_FORM_CONTEXT_REDUCERS.RESET_ALL,
+        })
     }
 }

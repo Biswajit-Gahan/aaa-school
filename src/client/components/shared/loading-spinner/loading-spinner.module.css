@@ -15,7 +15,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    border: 3px solid var(--color-3);
+    border: 2px solid var(--color-3);
     border-radius: 50%;
 }
 
@@ -24,7 +24,7 @@
     height: 100%;
     background-color: transparent;
     border-radius: 50%;
-    border: 3px solid var(--color-4);
+    border: 2px solid var(--color-4);
     border-right-color: transparent;
     position: relative;
     animation: spin 600ms linear infinite;

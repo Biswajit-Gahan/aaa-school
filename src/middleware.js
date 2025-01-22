@@ -32,7 +32,6 @@ export default async function middleware(req) {
         if(userAuth && path === "/student/login") {
             return NextResponse.redirect(new URL("/student/home", request.url));
         }
-
         return NextResponse.next();
     } catch (error) {
         const response = NextResponse.redirect(new URL("/student/login", request.url));

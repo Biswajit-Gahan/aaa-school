@@ -2,18 +2,20 @@ import ButtonElement from "@/client/components/user-interfaces/button-element";
 import styles
     from "./change-number-button.module.css";
 import useChangeNumber from "@/client/components/features/student-login/student-login-form/hooks/use-change-number";
-import useStudentLoginFormContext
-    from "@/client/components/features/student-login/student-login-form/hooks/use-student-login-form-context";
+import useLoginFormContext
+    from "@/client/components/features/student-login/student-login-form/hooks/use-login-form-context";
 
 export default function ChangeNumberButton() {
-    const [studentFormContext] = useStudentLoginFormContext();
+    const {
+        loading
+    } = useLoginFormContext();
 
     const changeNumberHandler = useChangeNumber();
 
     return <ButtonElement
         className={styles.changeNumberButton_button}
         onClick={changeNumberHandler}
-        disabled={studentFormContext.isLoading}
+        disabled={loading}
     >
         Change Number
     </ButtonElement>

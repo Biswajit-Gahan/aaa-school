@@ -15,8 +15,25 @@ function getAggregatedMarks(studentId = undefined, examId = undefined) {
     })
 }
 
+function getAllExamsByStudentId(studentId) {
+    return prisma.exam.findMany({
+        where: {
+            studentId,
+        },
+        select: {
+            examGroup: true,
+            examMark: true,
+            rightAnswers: true,
+            examId: true,
+            wrongAnswers: true,
+            subjectId: true,
+        }
+    })
+}
+
 const examModel = {
     getAggregatedMarks,
+    getAllExamsByStudentId
 }
 
 export default examModel;

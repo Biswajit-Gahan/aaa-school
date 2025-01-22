@@ -5,33 +5,34 @@ import TextInputElement from "@/client/components/user-interfaces/text-input-ele
 import {FiTablet} from "react-icons/fi";
 import ContainerElement from "@/client/components/user-interfaces/container-element";
 import TextElement from "@/client/components/user-interfaces/text-element";
-import useStudentLoginFormInputState
-    from "@/client/components/features/student-login/student-login-form/hooks/use-student-login-form-input-state";
-import useStudentLoginFormContext
-    from "@/client/components/features/student-login/student-login-form/hooks/use-student-login-form-context";
+import useLoginFormContext
+    from "@/client/components/features/student-login/student-login-form/hooks/use-login-form-context";
+import useFormMobileInput
+    from "@/client/components/features/student-login/student-login-form/hooks/use-form-mobile-input";
 
 export default function FormMobileNumberInput() {
-    const [studentLoginFormContextState] = useStudentLoginFormContext();
+    const {
+        mobileNumber,
+        loading,
+        otpGenerated,
+        mobileNumberError,
+    } = useLoginFormContext();
 
-    const [
-        inputValue,
-        error,
-        handleInputChange,
-    ] = useStudentLoginFormInputState('mobileNumber', studentLoginFormContextState.isResetMobileNumber);
+    const inputHandler = useFormMobileInput();
 
     return <ContainerElement>
         <TextInputElement
             className={styles.formMobileNumberInput_formInput}
             placeholder={"Enter mobile number"}
             name="mobileNumber"
-            value={inputValue}
-            onChange={handleInputChange}
-            disabled={studentLoginFormContextState.isLoading || studentLoginFormContextState.isOtpGenerated}
+            value={mobileNumber}
+            onChange={inputHandler}
+            disabled={loading || otpGenerated}
         >
             <FiTablet className={styles.formMobileNumberInput_inputIcons} size={18}/>
         </TextInputElement>
         {
-            error && <TextElement className={styles.formMobileNumberInput_errorLabel}>
+            mobileNumberError && <TextElement className={styles.formMobileNumberInput_errorLabel}>
                 * Please enter a valid 10 digit mobile number.
             </TextElement>
         }

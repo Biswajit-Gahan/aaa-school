@@ -2,7 +2,7 @@ const routeConfig = {
     pageRoutes: {
         studentHome: "/student/home",
         examGuidelines: "/student/exam/guidelines",
-        studentHistory: "/student/history",
+        studentHistory: "/student/exam/history",
         examStart: "/student/exam/start",
         studentLogin: "/student/login",
     },

@@ -106,6 +106,9 @@ export async function POST(req) {
         const responseData = {
             message: successMessages.success,
             statusCode: responseStatus.ok,
+            data: {
+                userId: student.studentId,
+            },
             success: true,
         }
 
