@@ -1,0 +1,29 @@
+/* FOOTER SECTION */
+.footerSection_footerContainer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    padding: 0 var(--default-horizontal-padding);
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-1);
+}
+
+.footerSection_scoreContainer {
+    display: flex;
+    align-items: center;
+    letter-spacing: 2px;
+}
+
+.footerSection_score {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--color-10);
+}
+
+.footerSection_buttonsContainer {
+    display: flex;
+    gap: var(--default-content-gap);
+}

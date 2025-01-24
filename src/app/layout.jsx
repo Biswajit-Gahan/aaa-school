@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./global-styles/globals.css";
 import UserContextProvider from "@/client/context/user-context";
+import LoadingScreen from "@/client/components/shared/loading-screens/loading-screen";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
             <html lang="en">
             <body className={`${inter.variable}`}>
             {children}
+            <LoadingScreen />
             </body>
             </html>
         </UserContextProvider>

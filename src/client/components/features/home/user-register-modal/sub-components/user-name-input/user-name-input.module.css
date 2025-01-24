@@ -1,0 +1,10 @@
+.userNameInput_textInput {
+    width: 100%;
+    padding: 10px;
+}
+
+.userNameInput_errorText {
+    color: var(--color-5);
+    margin-top: 10px;
+    font-size: 12px;
+}

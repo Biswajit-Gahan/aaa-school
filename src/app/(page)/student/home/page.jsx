@@ -14,6 +14,7 @@ import jsonWebToken from "@/server/lib/jwt";
 import studentModel from "@/server/models/student-model";
 import subjectModel from "@/server/models/subject-model";
 import examModel from "@/server/models/exam-model";
+import UserRegisterForm from "@/client/components/features/home/user-register-modal/user-register-form";
 
 function AdSection() {
     return <ContainerElement as={"section"} className={styles.adSection_adContainer} shadow={true}>
@@ -127,6 +128,16 @@ function ExamHistoryCard({exam}) {
     </ContainerElement>
 }
 
+function ModalRegisterForm() {
+    return <ContainerElement className={styles.modalRegisterForm_mainContainer}>
+        <ContainerElement className={styles.modalRegisterForm_mainWrapper}>
+            <TextElement as={"h2"} className={styles.modalRegisterForm_greetText}>Hello Brilliant !</TextElement>
+            <TextElement className={styles.modalRegisterForm_descriptionText}>Please register yourself by entering your full name.</TextElement>
+            <UserRegisterForm />
+        </ContainerElement>
+    </ContainerElement>
+}
+
 async function getData() {
     let student = {};
     let subjects = [];
@@ -150,7 +161,7 @@ async function getData() {
     if (student.isRegistered && studentData.examGroup) {
         subjects = await subjectModel.getAllSubjects(studentData.examGroup)
 
-        const exam = await examModel.getAllExamsByStudentId(tokenData.id)
+        const exam = await examModel.getAllExamsByStudentId(tokenData.id, 5, "desc")
 
         if (!exam) {
             examHistories = []
@@ -189,5 +200,8 @@ export default async function HomePage() {
             </ContainerElement>
             <FooterSection/>
         </ContainerElement>
+        {
+            !student?.isRegistered && <ModalRegisterForm/>
+        }
     </ContainerElement>
 }

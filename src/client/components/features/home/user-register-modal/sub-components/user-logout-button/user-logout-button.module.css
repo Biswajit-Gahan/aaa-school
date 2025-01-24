@@ -1,0 +1,6 @@
+.userLogoutButton_logoutButton {
+    width: 160px;
+    padding: 12px 0;
+    color: var(--color-1);
+    background: var(--gradient-color-3);
+}

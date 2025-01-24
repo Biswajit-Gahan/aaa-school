@@ -12,6 +12,10 @@ import {cookies} from "next/headers";
 import cookieKeys from "@/server/config/cookie-keys";
 import jsonWebToken from "@/server/lib/jwt";
 import studentModel from "@/server/models/student-model";
+import StartExamButton from "@/client/components/features/exam-guidelines/start-exam-button/start-exam-button";
+// import LoadingScreen from "@/client/components/shared/loading-screen/loading-screen";
+// import LoadingScreenContextProvider, {LoadingScreenContext} from "@/client/context/loading-screen-context";
+// import DynamicLoadingScreen from "@/client/components/shared/loading-screen/dynamic-loading-screen";
 
 export const metadata = {
     title: "Exam Guidelines",
@@ -21,8 +25,11 @@ export const metadata = {
 function GuidelinesSection({subjectData, studentData}) {
     return <ContainerElement className={styles.guidelinesSection_guidelinesContainer} as={"article"}>
         <TextElement as={"h1"}>Exam Guidelines</TextElement>
-        <TextElement className={styles.guidelinesSection_descriptionLabel}>{studentData?.fullName ? studentData.fullName.split(" ")[0] : ""}, you choose {subjectData.subjectName} for
-            your test. Do you want to continue?</TextElement>
+        <ContainerElement className={styles.guidelinesSection_descriptionLabelContainer}>
+            <TextElement
+                className={styles.guidelinesSection_userNameText}>{studentData?.fullName ? studentData.fullName.split(" ")[0] : ""},</TextElement> you
+            choose {subjectData.subjectName} for the test. Do you want to continue?
+        </ContainerElement>
         <TextElement as={"h2"} className={styles.guidelinesSection_guidelinesLabel}>Please read all the rules and
             regulations of the exam.</TextElement>
         <ListElement type={"ul"} className={styles.guidelinesSection_listContent}>
@@ -41,21 +48,22 @@ function AdSection() {
     </ContainerElement>
 }
 
-function FooterSection() {
+function FooterSection({subjectId, examGroup}) {
     return <ContainerElement className={styles.footerSection_guideLinesFooterContainer}>
-        <ButtonElement as={'a'} href={`${routeConfig.pageRoutes.studentHome}`} className={`${styles.footerSection_button} ${styles.footerSection_backButton}`}>BACK</ButtonElement>
-        <ButtonElement className={`${styles.footerSection_button} ${styles.footerSection_startButton}`}>LET&apos;S START</ButtonElement>
+        <ButtonElement as={'a'} href={`${routeConfig.pageRoutes.studentHome}`}
+                       className={`${styles.footerSection_button} ${styles.footerSection_backButton}`}>BACK</ButtonElement>
+        <StartExamButton subjectId={subjectId} examGroup={examGroup}/>
     </ContainerElement>
 }
 
 async function getSubjectData(subjectId, examGroup) {
-    if(!subjectId || !examGroup) {
+    if (!subjectId || !examGroup) {
         return null;
     }
     return (await subjectModel.getSubjectById(subjectId, examGroup));
 }
 
-async function getStudentData(studentId){
+async function getStudentData(studentId) {
     return (await studentModel.getStudentDetailsById(studentId));
 }
 
@@ -69,7 +77,7 @@ export default async function GuidelinesPage({params}) {
 
     const subjectData = await getSubjectData(subjectId, studentData.examGroup);
 
-    if(!subjectData || !studentData) {
+    if (!subjectData || !studentData) {
         notFound();
     }
 
@@ -79,12 +87,15 @@ export default async function GuidelinesPage({params}) {
         <Navbar/>
 
         {/* CONTENTS */}
-        <ContainerElement className={styles.guidelinesPage_mainWrapper}>
-            <ContainerElement className={styles.guidelinesPage_guidelinesContainer}>
-                <GuidelinesSection subjectData={subjectData} studentData={studentData} />
-                <AdSection />
+        {/*<LoadingScreenContextProvider>*/}
+            <ContainerElement className={styles.guidelinesPage_mainWrapper}>
+                <ContainerElement className={styles.guidelinesPage_guidelinesContainer}>
+                    <GuidelinesSection subjectData={subjectData} studentData={studentData}/>
+                    <AdSection/>
+                </ContainerElement>
+                <FooterSection subjectId={subjectId} examGroup={studentData.examGroup}/>
             </ContainerElement>
-            <FooterSection />
-        </ContainerElement>
+            {/*<DynamicLoadingScreen />*/}
+        {/*</LoadingScreenContextProvider>*/}
     </ContainerElement>
 }

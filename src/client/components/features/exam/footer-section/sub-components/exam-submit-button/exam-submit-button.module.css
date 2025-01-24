@@ -1,0 +1,5 @@
+.examSubmitButton_button {
+    width: 120px;
+    background: var(--gradient-color-1);
+    color: var(--color-1);
+}

@@ -1,0 +1,5 @@
+.userRegisterForm_buttonsContainer {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+}

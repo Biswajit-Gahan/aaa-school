@@ -11,7 +11,9 @@ export default async function middleware(req) {
         const cookieStore = await cookies();
         let userAuth = cookieStore.get(cookieKeys.userAuth)?.value || undefined;
 
-        const PROTECTED_ROUTES = ['/student/home'];
+        const PROTECTED_ROUTES = [
+            '/student/home',
+        ];
 
         if (PROTECTED_ROUTES.includes(path)) {
             if(!userAuth) {

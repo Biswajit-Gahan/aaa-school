@@ -16,6 +16,10 @@ const routeConfig = {
                 studentDetails: "/student/details",
                 allSubjects: "/exam/all-subjects",
                 recentExams: "/exam/history/recent-exams",
+                studentRegistration: "/student/registration",
+                startExam: "/exam/start",
+                newQuestion: "/exam/question",
+                submitAnswer: "/exam/submit-answer",
             },
         }
 

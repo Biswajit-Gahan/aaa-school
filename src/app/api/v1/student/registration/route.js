@@ -29,10 +29,6 @@ export async function POST(req) {
         // DECRYPT ENCRYPTED DATA
         const decryptedData = cryptoPublic.decryptObject(encryptedData);
 
-        // THROW ERROR IF NO FULL NAME FOUND
-        if (!regularExpressions.fullName.test(decryptedData?.fullName)) {
-            throw new ServerCustomError(errorMessageKeys.invalidName, responseStatus.badRequest);
-        }
 
         // THROW ERROR IF NO FULL NAME FOUND
         if (!regularExpressions.fullName.test(decryptedData?.fullName)) {
@@ -47,7 +43,7 @@ export async function POST(req) {
         // UPDATE USER FULL NAME INTO THE DATABASE
         await prisma.student.update({
             data: {
-                fullName: decryptedData.fullName,
+                fullName: decryptedData.fullName.toLowerCase(),
                 examGroup: decryptedData.examGroup,
             },
             where: {

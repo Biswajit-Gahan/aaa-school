@@ -1,0 +1,33 @@
+.questionOption_optionContainer {
+    position: relative;
+    background-color: var(--color-9);
+    margin-top: 15px;
+    border-radius: var(--default-border-radius);
+    padding: 15px 25px;
+    justify-content: flex-start;
+}
+
+.questionOption_optionText {}
+
+.questionOption_selected {
+    background-color: var(--color-14);
+}
+
+.questionOption_rightOption:disabled {
+    background-color: var(--color-16);
+    color: var(--color-2);
+}
+
+.questionOption_wrongOption:disabled {
+    background-color: var(--color-15);
+    color: var(--color-2);
+}
+
+.questionOption_answerTypeImage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-1);
+    border-radius: 50%;
+    transform: translate(25%, -25%);
+}

@@ -9,7 +9,8 @@
   --default-content-gap: 30px;
   --gradient-color-1: linear-gradient(90deg, #834422 0%, #CA9B61 100%);
   --gradient-color-2: linear-gradient(270deg, #8F3831 0%, #CA5953 100%);
-;
+  --gradient-color-3: linear-gradient(270deg, #AC3D37 0%, #D6605A 100%);
+
   --color-1: #FFFFFF;
   --color-2: #303030;
   --color-3: #8F8F8F;
@@ -23,6 +24,10 @@
   --color-11: #FFF3B0;
   --color-12: #E6DCD8;
   --color-13: #665050;
+  --color-14: #F6DFD2;
+  --color-15: #EABBBB;
+  --color-16: #C8EED8;
+  --color-1-transparent: rgba(48, 48, 48, 0.8)
 }
 
 *, *::before, *::after {

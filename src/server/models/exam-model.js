@@ -15,7 +15,7 @@ function getAggregatedMarks(studentId = undefined, examId = undefined) {
     })
 }
 
-function getAllExamsByStudentId(studentId) {
+function getAllExamsByStudentId(studentId, range, orderBy = "asc") {
     return prisma.exam.findMany({
         where: {
             studentId,
@@ -27,13 +27,28 @@ function getAllExamsByStudentId(studentId) {
             examId: true,
             wrongAnswers: true,
             subjectId: true,
+        },
+
+        take: range,
+
+        orderBy: {
+            createdAt: orderBy,
+        }
+    })
+}
+
+const getAllExamsCountByStudentId = (studentId) => {
+    return prisma.exam.count({
+        where: {
+            studentId,
         }
     })
 }
 
 const examModel = {
     getAggregatedMarks,
-    getAllExamsByStudentId
+    getAllExamsByStudentId,
+    getAllExamsCountByStudentId,
 }
 
 export default examModel;

@@ -1,0 +1,13 @@
+/* START PAGE */
+.startPage_mainContainer {}
+
+.startPage_mainWrapper {
+
+}
+
+.startPage_contentContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--default-content-gap);
+    padding: var(--default-content-gap) var(--default-horizontal-padding) calc(75px + var(--default-content-gap));
+}

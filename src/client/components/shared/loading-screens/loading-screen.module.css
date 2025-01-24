@@ -1,0 +1,38 @@
+.loadingScreen_mainContainer {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loadingScreen_mainContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-1-transparent);
+    backdrop-filter: blur(6px);
+}
+
+.loadingScreen_hide {
+    display: none;
+}
+
+.loadingScreen_mainWrapper {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: var(--color-1);
+    padding: var(--default-content-gap);
+    border-radius: var(--default-border-radius);
+}

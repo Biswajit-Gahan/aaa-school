@@ -53,14 +53,33 @@ export async function POST(req) {
         const decryptedData = cryptoPublic.decryptObject(encryptedData);
 
         // THROW ERROR IF NO EXAM ID FOUND
-        if (!decryptedData?.subjectId) {
+        // if (!decryptedData?.subjectId) {
+        //     throw new ServerCustomError(errorMessageKeys.invalidExamDetails, responseStatus.badRequest);
+        // }
+
+        if (!decryptedData?.examId) {
+            throw new ServerCustomError(errorMessageKeys.invalidExamDetails, responseStatus.badRequest);
+        }
+
+        const exam = await prisma.exam.findUnique({
+            where: {
+                examId: decryptedData.examId,
+            },
+
+            select: {
+                subjectId: true,
+            }
+        });
+
+        // THROW ERROR IF NO EXAM ID FOUND
+        if (!exam) {
             throw new ServerCustomError(errorMessageKeys.invalidExamDetails, responseStatus.badRequest);
         }
 
         // GET ALL ATTEMPTED QUESTION BY THE USER
         const attemptedQuestions = await prisma.attemptedQuestions.findMany({
             where: {
-                subjectId: decryptedData.subjectId,
+                subjectId: exam.subjectId,
                 studentId: userId
             },
             select: {
@@ -77,7 +96,7 @@ export async function POST(req) {
         if(!newQuestion) {
             await prisma.attemptedQuestions.deleteMany({
                 where: {
-                    subjectId: decryptedData.subjectId,
+                    subjectId: exam.subjectId,
                     studentId: userId,
                 },
             })
@@ -88,7 +107,7 @@ export async function POST(req) {
 
         await prisma.attemptedQuestions.create({
             data: {
-                subjectId: decryptedData.subjectId,
+                subjectId: exam.subjectId,
                 studentId: userId,
                 attemptedQuestion: newQuestion.questionId
             }
