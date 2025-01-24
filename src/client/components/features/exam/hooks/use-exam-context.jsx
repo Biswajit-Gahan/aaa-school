@@ -30,6 +30,8 @@ export default function useExamContext() {
         counters: {
             totalQuestionCount: context.counters.totalQuestionCount,
             totalQuestionAttempted: context.counters.totalQuestionAttempted,
+            timerId: context.counters.timerId,
+            timerRef: context.counters.timerRef,
         },
         contextDispatch: context.dispatch
     }

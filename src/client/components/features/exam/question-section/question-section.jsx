@@ -2,11 +2,20 @@
 
 import styles from "./question-section.module.css"
 import ContainerElement from "@/client/components/user-interfaces/container-element";
-import TextElement from "@/client/components/user-interfaces/text-element";
 import Image from "next/image";
 import DangerousElement from "@/client/components/user-interfaces/dangerous-element";
 import useExamContext from "@/client/components/features/exam/hooks/use-exam-context";
-import OptionList from "@/client/components/features/exam/question-section/sub-components/option-list/option-list";
+import dynamic from "next/dynamic";
+
+const DynamicOptionList = dynamic(
+    () => import("./sub-components/option-list/option-list"),
+    {ssr: false}
+)
+
+const DynamicExamTimer = dynamic(
+    () => import("./sub-components/exam-timer/exam-timer"),
+    {ssr: false}
+)
 
 
 export default function QuestionSection() {
@@ -18,10 +27,8 @@ export default function QuestionSection() {
     } = useExamContext();
 
     return <ContainerElement as={"section"} className={styles.questionSection_questionContainer}>
-        <ContainerElement className={styles.questionSection_timerContainer}>
-            <TextElement className={styles.questionSection_timer}>01:38</TextElement>
-            <TextElement className={styles.questionSection_timerDescription}>Time Left</TextElement>
-        </ContainerElement>
+        <DynamicExamTimer/>
+
         {
             questionImage && <Image
                 className={styles.questionSection_questionImage}
@@ -33,12 +40,13 @@ export default function QuestionSection() {
                 draggable={false}
             />
         }
+
         <DangerousElement
             className={styles.questionSection_question}
             html={`<strong>Question:</strong> ${question || " "}`}
         />
 
-        <OptionList />
+        <DynamicOptionList />
 
     </ContainerElement>
 }

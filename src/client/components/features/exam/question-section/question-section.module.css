@@ -20,20 +20,3 @@
     line-height: 20px;
 }
 
-.questionSection_timerContainer {
-    position: absolute;
-    right: var(--default-content-gap);
-    text-align: right;
-}
-
-.questionSection_timer {
-    color: var(--color-10);
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.questionSection_timerDescription {
-    margin-top: 2px;
-    font-size: 12px;
-    width: fit-content;
-}

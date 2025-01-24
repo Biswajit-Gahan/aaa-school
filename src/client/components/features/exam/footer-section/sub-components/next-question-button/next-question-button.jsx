@@ -23,6 +23,8 @@ export default function NextQuestionButton() {
 
     const isLastQuestion = totalQuestionCount === totalQuestionAttempted
 
+    console.log("server-logged")
+
     return <Fragment>
         {
             isSubmitted && !isLastQuestion && <ContainerElement>

@@ -24,7 +24,6 @@ export default function useGetNewQuestion() {
 
     async function getQuestionHandler() {
         try {
-            console.log("called")
             enableLoadingScreen();
 
             contextDispatch({
@@ -63,7 +62,7 @@ export default function useGetNewQuestion() {
                     optionD: questionResponseData.data.optionD,
                     answer: questionResponseData.data.answer,
                     questionImage: questionResponseData.data.image || "",
-                    totalQuestionAttempted: totalQuestionAttempted + 1,
+                    // totalQuestionAttempted: totalQuestionAttempted + 1,
                 }
             });
 
@@ -81,7 +80,7 @@ export default function useGetNewQuestion() {
 
     useEffect(() => {
         examId && getQuestionHandler();
-    }, [])
+    }, [examId])
 
     return {
         getQuestionHandler,

@@ -1,0 +1,17 @@
+.examTimer_timerContainer {
+    position: absolute;
+    right: var(--default-content-gap);
+    text-align: right;
+}
+
+.examTimer_timer {
+    color: var(--color-10);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.examTimer_timerDescription {
+    margin-top: 2px;
+    font-size: 12px;
+    width: fit-content;
+}

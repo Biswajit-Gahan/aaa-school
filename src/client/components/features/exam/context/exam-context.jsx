@@ -39,6 +39,7 @@ export const EXAM_CONTEXT_REDUCERS = {
     "END_FETCHING_QUESTION": "END_FETCHING_QUESTION",
     "SELECT_ANSWER": "SELECT_ANSWER",
     "END_ANSWER_SUBMITTING": "END_ANSWER_SUBMITTING",
+    "START_EXAM_TIMER": "START_EXAM_TIMER",
 }
 
 const reducer = (state, action) => {
@@ -91,7 +92,8 @@ const reducer = (state, action) => {
             },
             counters: {
                 ...state.counters,
-                totalQuestionAttempted: action.payload.totalQuestionAttempted,
+                // totalQuestionAttempted: action.payload.totalQuestionAttempted,
+                totalQuestionAttempted: state.counters.totalQuestionAttempted + 1,
             }
         }
         case "SELECT_ANSWER": return {
@@ -101,7 +103,6 @@ const reducer = (state, action) => {
                 selectedAnswer: action.payload,
             }
         }
-
         case "END_ANSWER_SUBMITTING": return {
             ...state,
             actions: {

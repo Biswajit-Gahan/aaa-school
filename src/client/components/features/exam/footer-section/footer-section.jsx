@@ -4,9 +4,22 @@ import styles from "./footer-section.module.css";
 import ContainerElement from "@/client/components/user-interfaces/container-element";
 import TextElement from "@/client/components/user-interfaces/text-element";
 import useExamContext from "@/client/components/features/exam/hooks/use-exam-context";
-import ExamSubmitButton from "@/client/components/features/exam/footer-section/sub-components/exam-submit-button/exam-submit-button";
-import NextQuestionButton
-    from "@/client/components/features/exam/footer-section/sub-components/next-question-button/next-question-button";
+import dynamic from "next/dynamic";
+
+const DynamicExamSubmitButton = dynamic(
+    () => import("./sub-components/exam-submit-button/exam-submit-button"),
+    {ssr: false}
+)
+
+const DynamicNextQuestionButton = dynamic(
+    () => import("./sub-components/next-question-button/next-question-button"),
+    {ssr: false}
+)
+
+const DynamicViewResultButton = dynamic(
+    () => import("./sub-components/view-result-button/view-result-button"),
+    {ssr: false}
+)
 
 export default function FooterSection() {
     const {
@@ -23,8 +36,9 @@ export default function FooterSection() {
         </ContainerElement>
 
         <ContainerElement className={styles.footerSection_buttonsContainer}>
-            <ExamSubmitButton />
-            <NextQuestionButton />
+            <DynamicExamSubmitButton />
+            <DynamicNextQuestionButton />
+            <DynamicViewResultButton />
         </ContainerElement>
     </ContainerElement>
 }

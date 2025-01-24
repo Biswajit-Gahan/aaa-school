@@ -10,7 +10,9 @@ const dateExtractor = {
             const month = new Date(dateString).toLocaleString("en-US", {timeZone: "Asia/Kolkata", month: "long"});
             const shortMonth = new Date(dateString).toLocaleString("en-US", {timeZone: "Asia/Kolkata", month: "short"});
             const numericMonth = new Date(dateString).toLocaleString("en-US", {timeZone: "Asia/Kolkata", month: "numeric"});
-            const hour = new Date(dateString).toLocaleString("en-US", {timeZone: "Asia/Kolkata", hour: "2-digit"});
+            const hourAndMeridian = new Date(dateString).toLocaleString("en-US", {timeZone: "Asia/Kolkata", hour: "numeric"}, );
+            const hour = hourAndMeridian.split(" ")[0];
+            const meridian = hourAndMeridian.split(" ")[1];
             const minute = new Date(dateString).toLocaleString("en-US", {timeZone: "Asia/Kolkata", minute: "2-digit"});
             const seconds = new Date(dateString).toLocaleString("en-US", {timeZone: "Asia/Kolkata", second: "2-digit"});
             return {
@@ -26,6 +28,7 @@ const dateExtractor = {
                 hour,
                 minute,
                 seconds,
+                meridian,
             }
         } catch (error) {
             return {

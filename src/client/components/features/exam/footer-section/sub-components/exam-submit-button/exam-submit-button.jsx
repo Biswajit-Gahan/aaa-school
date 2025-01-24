@@ -3,6 +3,7 @@ import ButtonElement from "@/client/components/user-interfaces/button-element";
 import ContainerElement from "@/client/components/user-interfaces/container-element";
 import useExamContext from "@/client/components/features/exam/hooks/use-exam-context";
 import useExamSubmitButton from "@/client/components/features/exam/hooks/use-exam-submit-button";
+import {Fragment} from "react";
 
 export default function ExamSubmitButton() {
     const {
@@ -12,6 +13,10 @@ export default function ExamSubmitButton() {
         },
         exam: {
             selectedAnswer
+        },
+        counters: {
+            totalQuestionCount,
+            totalQuestionAttempted
         }
     } = useExamContext();
 
@@ -22,13 +27,19 @@ export default function ExamSubmitButton() {
             ? isLoading || isSubmitted
             : true;
 
-    return <ContainerElement>
-        <ButtonElement
-            className={styles.examSubmitButton_button}
-            disabled={triggerDisable}
-            onClick={submitAnswerHandler}
-        >
-            SUBMIT
-        </ButtonElement>
-    </ContainerElement>
+    const isHidden = totalQuestionAttempted === totalQuestionCount && isSubmitted;
+
+    return <Fragment>
+        {
+            !isHidden && <ContainerElement>
+                <ButtonElement
+                    className={styles.examSubmitButton_button}
+                    disabled={triggerDisable}
+                    onClick={submitAnswerHandler}
+                >
+                    SUBMIT
+                </ButtonElement>
+            </ContainerElement>
+        }
+    </Fragment>
 }

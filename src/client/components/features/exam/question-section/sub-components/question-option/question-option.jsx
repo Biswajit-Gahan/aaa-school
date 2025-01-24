@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./question-option.module.css";
 import DangerousElement from "@/client/components/user-interfaces/dangerous-element";
 import Image from "next/image";
